@@ -1,0 +1,8 @@
+*nuke*
+test_*
+*.hcl
+.terraform
+.terraform.lock.hcl
+.terraformrc
+terraform.rc
+Phase_1*
