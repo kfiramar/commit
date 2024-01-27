@@ -1,6 +1,9 @@
 resource "aws_ecs_cluster" "main" {
   name = var.ecs_cluster_name
 }
+resource "aws_cloudwatch_log_group" "ecs_logs" {
+  name = "/ecs/nginx"
+}
 
 resource "aws_iam_role" "ecs_execution_role" {
   name = "ecs_execution_role"
@@ -26,23 +29,6 @@ resource "aws_iam_role_policy_attachment" "ecs_execution_ecr_read_policy_attachm
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
 
-
-resource "aws_ecs_task_definition" "nginx" {
-  family                   = var.nginx_task_family
-  network_mode             = "awsvpc"
-  requires_compatibilities = ["FARGATE"]
-  cpu                      = var.nginx_cpu
-  memory                   = var.nginx_memory
-  execution_role_arn       = aws_iam_role.ecs_execution_role.arn
-  container_definitions = jsonencode([{
-    name  = "nginx",
-    image = var.nginx_image,
-    portMappings = [{
-      containerPort = var.nginx_container_port,
-      hostPort      = var.nginx_host_port
-    }]
-  }])
-}
 
 resource "aws_security_group" "ecs_sg" {
   name        = "ecs_sg"
@@ -106,14 +92,3 @@ resource "aws_lb_target_group" "ecs_tg" {
   }
 }
 
-resource "aws_lb_listener" "https" {
-  load_balancer_arn = aws_lb.ecs_alb.arn
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = var.certificate_arn
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.ecs_tg.arn
-  }
-}

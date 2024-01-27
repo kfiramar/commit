@@ -17,5 +17,4 @@ variable "db_name" { default = "mydb" }
 variable "db_user" { default = "user" }
 variable "db_password" { default = "Passw0rd023" }
 variable "ecr_repository_name" { default = "nginx-commit" }
-variable "custom_nginx_service_name" { default = "custom-nginx-service" }
-variable "certificate_arn" { default = "arn:aws:acm:eu-west-1:533267130709:certificate/4ebfd18d-9ec0-45e5-8f0f-f9b17b5f19b0" }
+variable "certificate_arn" { default = "arn:aws:acm:eu-west-1:533267130709:certificate/01b982b4-c528-4ce0-af65-88cb2b08ea09" }

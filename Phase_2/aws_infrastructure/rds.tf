@@ -40,3 +40,7 @@ resource "aws_security_group" "rds_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+output "rds_endpoint" {
+  value = aws_db_instance.main.address
+}

@@ -1,5 +1,5 @@
 *nuke*
-test_*
+# test_*
 *.hcl
 .terraform
 .terraform.lock.hcl
