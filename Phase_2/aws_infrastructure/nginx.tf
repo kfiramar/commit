@@ -7,12 +7,12 @@ resource "aws_ecs_task_definition" "nginx" {
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
   container_definitions    = jsonencode([{
     name          = "nginx",
-    image         = "533267130709.dkr.ecr.eu-west-1.amazonaws.com/nginx-commit:latest",
+    image         = "533267130709.dkr.ecr.eu-west-2.amazonaws.com/nginx-commit:latest",
     logConfiguration = {
       logDriver = "awslogs"
       options = {
         awslogs-group         = "/ecs/nginx"
-        awslogs-region        = "eu-west-1"
+        awslogs-region        = "eu-west-2"
         awslogs-stream-prefix = "ecs"
       }
     }

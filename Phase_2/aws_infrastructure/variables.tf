@@ -1,8 +1,8 @@
 variable "vpc_cidr" { default = "10.0.0.0/16" }
 variable "subnet1_cidr" { default = "10.0.1.0/24" }
 variable "subnet2_cidr" { default = "10.0.2.0/24" }
-variable "availability_zone1" { default = "eu-west-1a" }
-variable "availability_zone2" { default = "eu-west-1b" }
+variable "availability_zone1" { default = "eu-west-2a" }
+variable "availability_zone2" { default = "eu-west-2b" }
 variable "ecs_cluster_name" { default = "main-cluster" }
 variable "nginx_task_family" { default = "nginx" }
 variable "nginx_cpu" { default = "256" }
@@ -17,4 +17,4 @@ variable "db_name" { default = "mydb" }
 variable "db_user" { default = "user" }
 variable "db_password" { default = "Passw0rd023" }
 variable "ecr_repository_name" { default = "nginx-commit" }
-variable "certificate_arn" { default = "arn:aws:acm:eu-west-1:533267130709:certificate/01b982b4-c528-4ce0-af65-88cb2b08ea09" }
+variable "certificate_arn" { default = "arn:aws:acm:eu-west-2:753392824297:certificate/e637a974-5183-4379-851c-fc2758b38ce6" }

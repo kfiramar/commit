@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set AWS configurations
-AWS_REGION="eu-west-1"
+AWS_REGION="eu-west-2"
 ECR_REPO="533267130709.dkr.ecr.$AWS_REGION.amazonaws.com/nginx-commit"
 
 # Step 1: Build and Push Docker Image to ECR

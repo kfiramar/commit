@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Configuration variables
-CERT_DOMAIN="ecs-alb-638370155.eu-west-1.elb.amazonaws.com"
+CERT_DOMAIN="ecs-alb-638370155.eu-west-2.elb.amazonaws.com"
 PRIVATE_KEY_FILE="privatekey.pem"
 CERT_FILE="certificate.pem"
-REGION="eu-west-1" # Change to your AWS region
+REGION="eu-west-2" # Change to your AWS region
 
 # Generate a private key
 openssl genrsa -out $PRIVATE_KEY_FILE 2048
